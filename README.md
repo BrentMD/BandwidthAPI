@@ -1,0 +1,1 @@
+# Python project to get SIP Peer data from a Bandwidth account and modify it's settings using Bandwidth API
