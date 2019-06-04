@@ -1,5 +1,7 @@
 # importing the requests library 
 import requests
+# import ElementTree to work with the XML data
+import xml.etree.ElementTree as ET
 
 # Bandwidth Account Variables
 userName = raw_input("Bandwidth Username: ")
@@ -20,6 +22,13 @@ while newLookup == 'y':
     locationID = raw_input("Location ID: ")
     response = requests.get(URL + subAccountID + "/sippeers/" + locationID, auth=(userName, userPassword), data=payload, headers=headers)
     print(response.text)
+    ##drNumber = raw_input("Disaster Route Number:")
+    # Adding the FinalDestinationUri to the SipPeer
+    ##root = ET.fromstring(response.content)
+    ##SipPeer = root.find('SipPeer')
+    ##FinalDestinationUri = ET.SubElement(SipPeer, 'FinalDestinationUri')
+    ##FinalDestinationUri.text = drNumber
+    ##print ET.tostring(root)
     newLookup = raw_input("Would you like to look up another(y,n)? ")
 
 
